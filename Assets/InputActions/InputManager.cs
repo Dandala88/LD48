@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
-    public delegate void OnFireAction();
-    public static event OnFireAction InputFire;
+    //public delegate void OnFireAction();
+    //public static event OnFireAction InputFire;
 
 
     public void OnMovement(InputAction.CallbackContext context)
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
         if(context.started)
         {
             GameManager.player.Fire();
-            InputFire();
+            //InputFire();
         }
     }
 

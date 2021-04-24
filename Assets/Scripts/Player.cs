@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     {
         Vector3 recoilCalc = new Vector3(0, rb.velocity.y*recoilPercent, 0);
         rb.AddForce(recoilCalc);
-        lasers.Fire(new Vector3(Camera.main.pixelWidth/2,Camera.main.pixelHeight/2,0));//    Random.Range(0,300),Random.Range(0,300),0));
+        lasers.Fire(new Vector3(GameManager.fireCursor.transform.position.x,GameManager.fireCursor.transform.position.y,0));//    Random.Range(0,300),Random.Range(0,300),0));
     }
 
     private void Recoil()
