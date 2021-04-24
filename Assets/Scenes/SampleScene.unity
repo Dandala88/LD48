@@ -1876,8 +1876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe877e62bc15ef429c61b9032796332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
-  drag: 0
+  movementSpeed: 50
+  dragPercent: {x: 0.9, y: 1, z: 0.9}
   maxFallSpeed: -10
   recoilPercent: 1
 --- !u!136 &424638704

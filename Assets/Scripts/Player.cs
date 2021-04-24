@@ -5,13 +5,15 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float movementSpeed;
-    public float drag;
+    public Vector3 dragPercent;
     public float maxFallSpeed;
     public float recoilPercent;
 
     private Rigidbody rb;
 
     private Vector3 movement;
+
+    private Vector3 tParam;
 
     private void Awake()
     {
@@ -20,7 +22,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(rb.velocity.x + (movement.x * movementSpeed), rb.velocity.y, rb.velocity.z + (movement.y * movementSpeed));
+        rb.AddForce((movement * movementSpeed));
+        rb.velocity = new Vector3(rb.velocity.x * dragPercent.x, rb.velocity.y, rb.velocity.z * dragPercent.z);
+        //rb.velocity = new Vector3(rb.velocity.x + (movement.x * movementSpeed), rb.velocity.y, rb.velocity.z + (movement.y * movementSpeed));
 
         if(rb.velocity.y < maxFallSpeed)
         {
@@ -30,7 +34,7 @@ public class Player : MonoBehaviour
 
     public void Movement(Vector2 inputMovement)
     {
-        movement = inputMovement;
+        movement = new Vector3(inputMovement.x, 0, inputMovement.y);
     }
 
     public void Fire()
