@@ -20,6 +20,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "MoveCursor",
+                    "type": "PassThrough",
+                    "id": "87e9c8bd-dfb1-4c1b-8f5c-d58c3ac569cd",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -112,7 +120,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "right",
+                    "name": "left",
                     "id": "2317af1d-3271-4429-ac8d-6d2350ab47bd",
                     "path": "<Keyboard>/a",
                     "interactions": "",
@@ -123,7 +131,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "left",
+                    "name": "right",
                     "id": "516fa4bc-66fd-4e0e-965c-82c1f14a3ec2",
                     "path": "<Keyboard>/d",
                     "interactions": "",
@@ -152,6 +160,28 @@
                     "processors": "",
                     "groups": "Keyboard + Mouse",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6acd390a-592f-4c89-b890-f207de348847",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard + Mouse",
+                    "action": "MoveCursor",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f065bc9f-8c97-4140-afa1-eebd5e3977fa",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "ScaleVector2(x=5,y=5)",
+                    "groups": "Xbox Controller",
+                    "action": "MoveCursor",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
