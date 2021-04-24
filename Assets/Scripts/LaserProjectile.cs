@@ -14,6 +14,10 @@ public class LaserProjectile : MonoBehaviour
         transform.LookAt(destination);
             
         Destroy(this, lifeSpan);
+        foreach (Transform child in this.transform) {
+            Debug.Log("Destruction Emitent");
+            Destroy(child.gameObject, lifeSpan);
+        }
     }
 
     void Update() {
@@ -33,12 +37,8 @@ public class LaserProjectile : MonoBehaviour
         transform.LookAt(destination);
     }
 
-    void Destroy() {
-        foreach (Transform child in this.transform) {
-            Debug.Log("Destruction Emitent");
-            Destroy(child.gameObject);
-        }
-    }
+    // void Destroy() {
+    // }
 
     public void setDestination(Vector3 destination) {
         this.destination = destination;
