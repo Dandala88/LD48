@@ -7,29 +7,30 @@ public class Player : MonoBehaviour
     public float movementSpeed;
     public Vector3 dragPercent;
     public float maxFallSpeed;
-    public float recoilPercent;
+    public float minFallSpeed;
+    public Vector3 recoil;
+    public Lasers lasers;
+    public int health;
+    public int maxHealth;
 
     private Rigidbody rb;
 
     private Vector3 movement;
-
-    private Vector3 tParam;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        GameManager.overlay.UpdatePlayerHealth(health);
+    }
+
     private void FixedUpdate()
     {
         rb.AddForce((movement * movementSpeed));
-        rb.velocity = new Vector3(rb.velocity.x * dragPercent.x, rb.velocity.y, rb.velocity.z * dragPercent.z);
-        //rb.velocity = new Vector3(rb.velocity.x + (movement.x * movementSpeed), rb.velocity.y, rb.velocity.z + (movement.y * movementSpeed));
-
-        if(rb.velocity.y < maxFallSpeed)
-        {
-            rb.velocity = new Vector3(rb.velocity.x, maxFallSpeed, rb.velocity.z);
-        }
+        rb.velocity = new Vector3(rb.velocity.x * dragPercent.x, Mathf.Clamp(rb.velocity.y, maxFallSpeed, minFallSpeed), rb.velocity.z * dragPercent.z);
     }
 
     public void Movement(Vector2 inputMovement)
@@ -39,20 +40,24 @@ public class Player : MonoBehaviour
 
     public void Fire()
     {
-        Vector3 recoilCalc = new Vector3(0, rb.velocity.y*recoilPercent, 0);
-        rb.AddForce(recoilCalc);
+        rb.AddForce(recoil);
+        lasers.Fire(new Vector3(GameManager.fireCursor.transform.position.x,GameManager.fireCursor.transform.position.y,0));//    Random.Range(0,300),Random.Range(0,300),0));
     }
 
-    private void Recoil()
+    public void Damage(int damage)
     {
-        if(rb.velocity.y >= 0)
+        if(health - damage > 0)
         {
-            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z);
+            health -= damage;
+            GameManager.overlay.UpdatePlayerHealth(health);
         }
-        else
+
+        if(health <= 0)
         {
-            Vector3 recoilCalc = new Vector3(0, rb.velocity.y*recoilPercent, 0);
+            Destroy(gameObject);
         }
+
+        
     }
 
 }
