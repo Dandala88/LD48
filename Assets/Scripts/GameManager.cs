@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static Player player;
+    public static FireCursor fireCursor;
 
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+        fireCursor = FindObjectOfType<FireCursor>();
     }
 
 }
