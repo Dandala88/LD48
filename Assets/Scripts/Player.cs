@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float movementSpeed;
     public float maxSpeed;
     public float recoilPercent;
+    public Lasers lasers;
 
     private Rigidbody rb;
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
     {
         Vector3 recoilCalc = new Vector3(0, rb.velocity.y*recoilPercent, 0);
         rb.AddForce(recoilCalc);
+        lasers.Fire(new Vector3(Camera.main.pixelWidth/2,Camera.main.pixelHeight/2,0));//    Random.Range(0,300),Random.Range(0,300),0));
     }
 
 }
