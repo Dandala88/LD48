@@ -11,6 +11,7 @@ public class Lasers : MonoBehaviour
     public GameObject bullet;
 
     public Vector3 projectileOffset;
+    
     void Start()
     {
         

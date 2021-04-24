@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81222621469408035}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -224,15 +224,24 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.21306801
-        inSlope: 0
-        outSlope: 0
+        value: 0
+        inSlope: 0.76292545
+        outSlope: 0.76292545
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.5204802
       - serializedVersion: 3
-        time: 0.4158833
+        time: 0.11556715
+        value: 0.19718073
+        inSlope: -0.000016221062
+        outSlope: -0.000016221062
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.30676803
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.39938653
         value: 0
         inSlope: 0
         outSlope: 0
