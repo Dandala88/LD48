@@ -28,8 +28,8 @@ public class Lasers : MonoBehaviour
         
         foreach (GameObject laser in lasersCannons)
         {
-            //Debug.DrawLine(laser.transform.position, target, Color.red, 3f);
-            GameObject laserProjectile = Instantiate(bullet, transform.position + projectileOffset, transform.rotation);
+            //Debug.DrawLine(laser.transform.position, target, Color.red, 3f);  
+            GameObject laserProjectile = Instantiate(bullet, laser.transform.position + projectileOffset, laser.transform.rotation);
             laserProjectile.GetComponent<LaserProjectile>().setDestination(target);
 
         }

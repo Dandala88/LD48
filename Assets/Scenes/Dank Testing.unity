@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe877e62bc15ef429c61b9032796332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 200
+  movementSpeed: 150
   dragPercent: {x: 0.5, y: 1, z: 0.5}
   maxFallSpeed: -10
   recoilPercent: 0
@@ -1742,7 +1742,7 @@ MonoBehaviour:
   lasersCannons:
   - {fileID: 648899268}
   - {fileID: 1823536389}
-  maxFireDistance: 50
+  maxFireDistance: 200
   bullet: {fileID: 784780304143605987, guid: 394fbb48c6324564aa423576487ace12, type: 3}
   projectileOffset: {x: 0, y: -0.5, z: 0}
 --- !u!1 &458162401
