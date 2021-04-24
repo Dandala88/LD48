@@ -669,6 +669,8 @@ MonoBehaviour:
   - {fileID: 1688500570}
   - {fileID: 1435658220}
   maxFireDistance: 20
+  bullet: {fileID: 784780304143605987, guid: 6dca533a2c6f99e47bc1706897875c68, type: 3}
+  projectileOffset: {x: 0, y: 0, z: 0}
 --- !u!136 &886855916
 CapsuleCollider:
   m_ObjectHideFlags: 0
