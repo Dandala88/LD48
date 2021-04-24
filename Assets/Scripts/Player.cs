@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public float minFallSpeed;
     public Vector3 recoil;
     public Lasers lasers;
+    public int health;
+    public int maxHealth;
 
     private Rigidbody rb;
 
@@ -18,6 +20,11 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        GameManager.overlay.UpdatePlayerHealth(health);
     }
 
     private void FixedUpdate()
@@ -35,6 +42,22 @@ public class Player : MonoBehaviour
     {
         rb.AddForce(recoil);
         lasers.Fire(new Vector3(GameManager.fireCursor.transform.position.x,GameManager.fireCursor.transform.position.y,0));//    Random.Range(0,300),Random.Range(0,300),0));
+    }
+
+    public void Damage(int damage)
+    {
+        if(health - damage > 0)
+        {
+            health -= damage;
+            GameManager.overlay.UpdatePlayerHealth(health);
+        }
+
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
+        
     }
 
 }
