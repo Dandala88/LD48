@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     public Vector3 startingVelocity;
 
     public int power;
+    
+    public float lifeSpan;
 
     private void Awake()
     {
@@ -26,5 +28,11 @@ public class Projectile : MonoBehaviour
         {
             GameManager.player.Damage(power);
         }
+    }
+
+    private IEnumerator LifeSpan()
+    {
+        yield return new WaitForSeconds(lifeSpan);
+        Destroy(gameObject);
     }
 }
