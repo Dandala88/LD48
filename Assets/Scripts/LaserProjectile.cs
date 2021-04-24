@@ -35,10 +35,9 @@ public class LaserProjectile : MonoBehaviour
 
     void Destroy() {
         foreach (Transform child in this.transform) {
+            Debug.Log("Destruction Emitent");
             Destroy(child.gameObject);
         }
-
-        
     }
 
     public void setDestination(Vector3 destination) {
