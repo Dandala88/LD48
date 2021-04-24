@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         fireCursor = FindObjectOfType<FireCursor>();
-        Cursor.visible = false;
     }
 
 }
