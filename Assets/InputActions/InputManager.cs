@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     {
         if(context.started)
         {
+            GameManager.player.Fire();
         }
     }
 }

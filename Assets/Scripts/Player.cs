@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public float fallSpeed;
     public float movementSpeed;
     public float maxSpeed;
+    public float recoilPercent;
 
     private Rigidbody rb;
 
@@ -17,9 +18,9 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        transform.Translate(movement * Time.deltaTime * movementSpeed);
+        rb.velocity = movement;
 
         if(rb.velocity.y < maxSpeed)
         {
@@ -29,11 +30,13 @@ public class Player : MonoBehaviour
 
     public void Movement(Vector2 inputMovement)
     {
-        movement = new Vector3(inputMovement.x, 0, inputMovement.y);
+        movement = new Vector3(inputMovement.x * movementSpeed, rb.velocity.y, inputMovement.y * movementSpeed);
     }
 
     public void Fire()
     {
+        Vector3 recoilCalc = new Vector3(0, rb.velocity.y*recoilPercent, 0);
+        rb.AddForce(recoilCalc);
     }
 
 }
