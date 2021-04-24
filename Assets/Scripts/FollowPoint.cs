@@ -10,7 +10,7 @@ public class FollowPoint : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, 0.5f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position = new Vector3(GameManager.player.transform.position.x * fractionOffset.x, GameManager.player.transform.position.y * fractionOffset.y, GameManager.player.transform.position.z * fractionOffset.z);
     }

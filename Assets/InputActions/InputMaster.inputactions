@@ -165,6 +165,17 @@
                 },
                 {
                     "name": "",
+                    "id": "8a7487cf-4b1a-4e61-9bcc-e04083db0807",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "6acd390a-592f-4c89-b890-f207de348847",
                     "path": "<Mouse>/delta",
                     "interactions": "",
