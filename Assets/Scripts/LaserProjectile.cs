@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LaserProjectile : MonoBehaviour
 {
-    public float ProjectileSpeed = .8f;
+    public float ProjectileSpeed = 10f;
     public Vector3 destination;
     // Start is called before the first frame update
     void Start()

@@ -8,6 +8,7 @@ public class Lasers : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] lasersCannons;
     public float maxFireDistance = 1f;
+    public GameObject bullet;
     void Start()
     {
         
@@ -16,8 +17,6 @@ public class Lasers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
         
     }
 
@@ -27,7 +26,8 @@ public class Lasers : MonoBehaviour
         
         foreach (GameObject laser in lasersCannons)
         {
-            Debug.DrawLine(laser.transform.position, target, Color.red, 3f);
+            //Debug.DrawLine(laser.transform.position, target, Color.red, 3f);
+            Instantiate(bullet, laser.transform.position, transform.rotation);
         }
     }
 }
