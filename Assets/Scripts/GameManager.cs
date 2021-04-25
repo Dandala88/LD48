@@ -8,14 +8,16 @@ public class GameManager : MonoBehaviour
     public static Player player;
     public static FireCursor fireCursor;
     public static Overlay overlay;
-    public static new AudioManager audio;
+    public static AudioManager audioManager;
+    public static ScoreManager scoreManager;
 
     private void Awake()
     {
         player = FindObjectOfType<Player>();
         fireCursor = FindObjectOfType<FireCursor>();
         overlay = FindObjectOfType<Overlay>();
-        audio = FindObjectOfType<AudioManager>();
+        audioManager = FindObjectOfType<AudioManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
     }

@@ -36,9 +36,11 @@ public class Enemy : MonoBehaviour
     public void Damage(int damage)
     {
         health -= damage;
+        GameManager.scoreManager.updateScore(1);
 
         if(health <= 0)
         {
+            GameManager.scoreManager.updateCombo(1);
             GameObject clone = Instantiate(explosionPrefab);
             clone.transform.position = transform.position;
             //GameManager.audio.PlaySoundEffect(explosionSfx);

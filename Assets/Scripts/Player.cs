@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
             if(health - damage > 0)
             {
                 health -= damage;
+                GameManager.scoreManager.resetCombo();
                 GameManager.overlay.UpdatePlayerHealth(health);
                 StartCoroutine(Invincibility(iframeSeconds));
             }
