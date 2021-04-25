@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public float secondsPerRound;
     public LaserProjectile prefab;
+    public GameObject laserCannon, pivotPoint;
     public Vector3 projectileOffset;
     public GameObject explosionPrefab;
     public AudioClip explosionSfx;
@@ -23,9 +24,13 @@ public class Enemy : MonoBehaviour
     private IEnumerator Fire(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        LaserProjectile clone = Instantiate(prefab, transform.position, transform.rotation);
+        LaserProjectile clone = Instantiate(prefab, laserCannon.transform.position, laserCannon.transform.rotation);
         clone.setDestination(GameManager.player.transform.position);
         StartCoroutine(Fire(seconds));
+    }
+
+    void Update() {
+        pivotPoint.transform.LookAt(GameManager.player.transform);
     }
 
     public void Damage(int damage)
