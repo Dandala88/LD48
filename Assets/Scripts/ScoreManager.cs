@@ -10,16 +10,17 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     public void updateScore(int amount) {
         score += amount * combo;
-        GameManager.overlay.UpdateScoreInfo(score, combo);
+        updateInfo();
     }
 
     public void updateCombo(int amount) {
         combo += amount;
-        GameManager.overlay.UpdateScoreInfo(score, combo);
+        updateInfo();
     }
 
     public void resetCombo() {
         combo = 0;
+        updateInfo();
     }
 
     public int getScore() {
@@ -28,5 +29,9 @@ public class ScoreManager : MonoBehaviour
 
     public int getCombo() {
         return combo;
+    }
+
+    private void updateInfo() {
+        GameManager.overlay.UpdateScoreInfo(score, combo);
     }
 }

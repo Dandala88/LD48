@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   secondsPerRound: 2
+  activeRadius: 50
   prefab: {fileID: 784780304143605986, guid: ec6e47d2b879b3748bca4eccb8bc7bc7, type: 3}
   laserCannon: {fileID: 17635722438658033}
   pivotPoint: {fileID: 16172838635626907}

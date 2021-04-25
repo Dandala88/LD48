@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
-    public float secondsPerRound;
+    public float secondsPerRound, activeRadius = 10f;
     public LaserProjectile prefab;
     public GameObject laserCannon, pivotPoint;
     public Vector3 projectileOffset;
@@ -13,24 +13,39 @@ public class Enemy : MonoBehaviour
     public AudioClip explosionSfx;
 
     public float randomFireStagger;
+    private float playerDistance;
+    public bool isFiring = false;
 
     private void Start()
     {
         float rando = Random.Range(-randomFireStagger, randomFireStagger);
         secondsPerRound += rando;
-        StartCoroutine(Fire(secondsPerRound));
     }
 
     private IEnumerator Fire(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
         LaserProjectile clone = Instantiate(prefab, laserCannon.transform.position, laserCannon.transform.rotation);
         clone.setDestination(GameManager.player.transform.position);
-        StartCoroutine(Fire(seconds));
+        yield return new WaitForSeconds(seconds);
+
+        if (isFiring) {
+            StartCoroutine(Fire(seconds));
+        }
     }
 
     void Update() {
-        pivotPoint.transform.LookAt(GameManager.player.transform);
+        playerDistance = Vector3.Distance(transform.position, GameManager.player.transform.position);
+
+        if (playerDistance <= activeRadius) {
+            if (!isFiring) {
+                isFiring = true;
+                Debug.Log("bruh");
+                StartCoroutine(Fire(secondsPerRound));
+            }
+            pivotPoint.transform.LookAt(GameManager.player.transform);     
+        } else {
+            isFiring = false;
+        }
     }
 
     public void Damage(int damage)
