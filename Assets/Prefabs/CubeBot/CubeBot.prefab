@@ -115,6 +115,7 @@ MonoBehaviour:
   projectileOffset: {x: 0, y: 0, z: 0}
   explosionPrefab: {fileID: 6725403346551351656, guid: 132f072205c31d642aec69c099843828,
     type: 3}
+  explosionSfx: {fileID: 8300000, guid: 75b79f0e081bc18459817eb1c2fbd41b, type: 3}
   randomFireStagger: 1
 --- !u!1001 &16489747079265463
 PrefabInstance:

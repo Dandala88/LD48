@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public LaserProjectile prefab;
     public Vector3 projectileOffset;
     public GameObject explosionPrefab;
+    public AudioClip explosionSfx;
 
     public float randomFireStagger;
 
@@ -21,9 +22,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Fire(float seconds)
     {
+        yield return new WaitForSeconds(seconds);
         LaserProjectile clone = Instantiate(prefab, transform.position, transform.rotation);
         clone.setDestination(GameManager.player.transform.position);
-        yield return new WaitForSeconds(seconds);
         StartCoroutine(Fire(seconds));
     }
 
@@ -35,6 +36,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject clone = Instantiate(explosionPrefab);
             clone.transform.position = transform.position;
+            GameManager.audio.PlaySoundEffect(explosionSfx);
             Destroy(gameObject);
         }
     }
