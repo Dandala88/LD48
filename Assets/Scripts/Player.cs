@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
                 health -= damage;
                 GameManager.scoreManager.resetCombo();
                 GameManager.overlay.UpdatePlayerHealth(health);
-                StartCoroutine(Invincibility(iframeSeconds));
+                StartCoroutine(Invincibility(GetComponentsInChildren<SkinnedMeshRenderer>(), iframeSeconds, 0.05f));
             }
 
             if(health <= 0)
@@ -70,10 +70,22 @@ public class Player : MonoBehaviour
          
     }
 
-    private IEnumerator Invincibility(float seconds)
+    private IEnumerator Invincibility(SkinnedMeshRenderer[] rendererToFlash, float flashTime, float flashSpeed)
     {
         invincible = true;
-        yield return new WaitForSeconds(seconds);
+        int numOfFlashes = Mathf.RoundToInt(flashTime / flashSpeed);
+        for(int i = 0; i < numOfFlashes; i++)
+        {
+            foreach(SkinnedMeshRenderer renderer in rendererToFlash)
+            {
+                renderer.enabled = !renderer.enabled;
+            }
+            yield return new WaitForSeconds(flashSpeed);
+        }
+        foreach(SkinnedMeshRenderer renderer in rendererToFlash)
+        {
+            renderer.enabled = true;
+        }
         invincible = false;
     }
 

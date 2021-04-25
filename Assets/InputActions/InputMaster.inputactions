@@ -190,7 +190,7 @@
                     "id": "f065bc9f-8c97-4140-afa1-eebd5e3977fa",
                     "path": "<XInputController>/rightStick",
                     "interactions": "",
-                    "processors": "ScaleVector2(x=5,y=5)",
+                    "processors": "ScaleVector2(x=10,y=10)",
                     "groups": "Xbox Controller",
                     "action": "MoveCursor",
                     "isComposite": false,
