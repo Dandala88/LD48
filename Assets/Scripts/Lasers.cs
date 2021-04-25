@@ -36,8 +36,6 @@ public class Lasers : MonoBehaviour
         } else {
             target = Camera.main.ScreenToWorldPoint(new Vector3(cursorPos.x, cursorPos.y, maxFireDistance));
         }
-
-        Debug.Log(target);
         
         foreach (GameObject laser in lasersCannons)
         {

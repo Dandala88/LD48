@@ -5,6 +5,13 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    public PlayerInput input;
+
+    private void Awake()
+    {
+        input = GetComponent<PlayerInput>();
+    }
+
     public void OnMovement(InputAction.CallbackContext context)
     {
         if(context.performed)
