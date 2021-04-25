@@ -14,7 +14,7 @@ public class LaserProjectile : MonoBehaviour
     {
         transform.LookAt(destination);
             
-        Destroy(this, lifeSpan);
+        Destroy(gameObject, lifeSpan);
         foreach (Transform child in this.transform) {
             Destroy(child.gameObject, lifeSpan);
         }
@@ -28,13 +28,14 @@ public class LaserProjectile : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, destination, ProjectileSpeed*Time.fixedDeltaTime);
+        transform.position += (transform.TransformDirection(Vector3.forward).normalized * ProjectileSpeed * Time.fixedDeltaTime);//Vector3.Lerp(transform.position, destination, ProjectileSpeed*Time.fixedDeltaTime);
         if (Vector3.Distance(transform.position, destination) < .1) {
             
-            Destroy(this);
+            Destroy(gameObject);
+            foreach (Transform child in this.transform) {
+                Destroy(child.gameObject, lifeSpan);
+            }
         }
-
-        transform.LookAt(destination);
     }
 
 

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  ProjectileSpeed: 4
+  ProjectileSpeed: 50
   lifeSpan: 2
   destination: {x: 0, y: 0, z: 0}
 --- !u!135 &7614480168521471179
