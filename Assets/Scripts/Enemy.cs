@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject clone = Instantiate(explosionPrefab);
             clone.transform.position = transform.position;
-            GameManager.audio.PlaySoundEffect(explosionSfx);
+            //GameManager.audio.PlaySoundEffect(explosionSfx);
             Destroy(gameObject);
         }
     }
