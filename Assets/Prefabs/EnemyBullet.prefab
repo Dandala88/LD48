@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  ProjectileSpeed: 4
+  ProjectileSpeed: 50
   lifeSpan: 2
   destination: {x: 0, y: 0, z: 0}
   fireSound: {fileID: 8300000, guid: eaaeb95a952305940b201f68bf96dbb0, type: 3}

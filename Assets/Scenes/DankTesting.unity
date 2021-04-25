@@ -1917,6 +1917,8 @@ MonoBehaviour:
   sfx: {fileID: 1177488266}
   startingTrack: {fileID: 8300000, guid: c3fda1154495515498fe388c36aec62d, type: 3}
   numberOfOneShots: 0
+  currentTrack: 0
+  canPlay: 1
 --- !u!4 &1152734066
 Transform:
   m_ObjectHideFlags: 0
@@ -4587,6 +4589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94383ed6c153aaf4491d505fa83a866c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
 --- !u!1 &2067090955
 GameObject:
   m_ObjectHideFlags: 0
