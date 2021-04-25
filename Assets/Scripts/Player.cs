@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public int health;
     public int maxHealth;
 
+    //public Transform lookAtPoint;
+
     private Rigidbody rb;
 
     private Vector3 movement;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //transform.LookAt(lookAtPoint, Vector3.forward);
         rb.AddForce((movement * movementSpeed));
         rb.velocity = new Vector3(rb.velocity.x * dragPercent.x, Mathf.Clamp(rb.velocity.y, maxFallSpeed, minFallSpeed), rb.velocity.z * dragPercent.z);
     }

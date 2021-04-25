@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingVelocity: {x: 0, y: 100, z: 0}
   power: 1
+  lifeSpan: 2
 --- !u!54 &8936883486648121444
 Rigidbody:
   m_ObjectHideFlags: 0

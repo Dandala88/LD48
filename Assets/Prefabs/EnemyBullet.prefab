@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8113170981892938858}
   - component: {fileID: 5541061423312897373}
   - component: {fileID: 8774940977530050061}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,8 +93,8 @@ GameObject:
   - component: {fileID: 784780304143605986}
   - component: {fileID: 7614480168521471179}
   - component: {fileID: 4019124238411919177}
-  m_Layer: 7
-  m_Name: Bullet
+  m_Layer: 6
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  ProjectileSpeed: 1
-  lifeSpan: 0.5
+  ProjectileSpeed: 4
+  lifeSpan: 2
   destination: {x: 0, y: 0, z: 0}
 --- !u!135 &7614480168521471179
 SphereCollider:
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720578890315795953}
   - component: {fileID: 9111043028767184973}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
