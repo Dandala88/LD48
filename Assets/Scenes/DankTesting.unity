@@ -1147,8 +1147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lasersCannons:
-  - {fileID: 1688500570}
-  - {fileID: 1435658220}
+  - {fileID: 1087233021817365}
   maxFireDistance: 200
   bullet: {fileID: 784780304143605987, guid: 6dca533a2c6f99e47bc1706897875c68, type: 3}
   projectileOffset: {x: 0, y: -0.5, z: 0}
@@ -4532,8 +4531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94383ed6c153aaf4491d505fa83a866c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  mouseSensitivity: 1
+  mouseSensitivity: 0.5
 --- !u!1 &2067090955
 GameObject:
   m_ObjectHideFlags: 0

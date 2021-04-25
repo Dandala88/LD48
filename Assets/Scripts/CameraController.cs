@@ -10,6 +10,5 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         transform.position = new Vector3(follow.transform.position.x + offset.x, follow.transform.position.y + offset.y, follow.transform.position.z + offset.z);
-        transform.LookAt(follow.position);
     }
 }
