@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
         if (playerDistance <= activeRadius) {
             if (!isFiring) {
                 isFiring = true;
-                Debug.Log("bruh");
                 StartCoroutine(Fire(secondsPerRound));
             }
             pivotPoint.transform.LookAt(GameManager.player.transform);     
@@ -60,6 +59,15 @@ public class Enemy : MonoBehaviour
             clone.transform.position = transform.position;
             //GameManager.audio.PlaySoundEffect(explosionSfx);
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            Damage(health);
+            GameManager.player.Damage(1);
         }
     }
 
