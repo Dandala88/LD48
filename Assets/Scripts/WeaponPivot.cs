@@ -15,7 +15,7 @@ public class WeaponPivot : MonoBehaviour
         target = Camera.main.ScreenToWorldPoint(new Vector3(cursorPos.x, cursorPos.y, maxFireDistance));
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         cursorPos = GameManager.fireCursor.transform.position;
         target = Camera.main.ScreenToWorldPoint(new Vector3(cursorPos.x, cursorPos.y, maxFireDistance));

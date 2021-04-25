@@ -25,7 +25,19 @@ public class Lasers : MonoBehaviour
 
     public void Fire(Vector3 cursorPos) {
 
-        Vector3 target = Camera.main.ScreenToWorldPoint(new Vector3(cursorPos.x, cursorPos.y, maxFireDistance));
+        int layerMask =  ~((1 << 5) | (1 << 6) | (1 << 7) | (1 << 8));
+
+        Ray targetRay = Camera.main.ScreenPointToRay(new Vector3(cursorPos.x, cursorPos.y, 0));
+        Vector3 target; 
+        //Debug.DrawRay(targetRay,);
+        RaycastHit hit;
+        if (Physics.Raycast(targetRay, out hit, Mathf.Infinity, layerMask)) {
+            target = hit.point;
+        } else {
+            target = Camera.main.ScreenToWorldPoint(new Vector3(cursorPos.x, cursorPos.y, maxFireDistance));
+        }
+
+        Debug.Log(target);
         
         foreach (GameObject laser in lasersCannons)
         {
