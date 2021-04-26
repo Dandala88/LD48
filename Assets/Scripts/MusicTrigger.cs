@@ -10,7 +10,7 @@ public class MusicTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GameManager.audioManager.SetNextTrack(track);
+            GameManager.audioManager.SetNextTrack(track, true);
         }
     }
 }

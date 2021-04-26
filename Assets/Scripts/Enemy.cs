@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour
     {
         agroLight = GetComponentInChildren<Light>();
         agroLight.enabled = false;
-        Debug.Log(agroLight);
         float rando = Random.Range(-randomFireStagger, randomFireStagger);
         secondsPerRound += rando;
     }

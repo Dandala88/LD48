@@ -27,12 +27,11 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         currentTrack = 0;
-
-        audioSource[currentTrack].clip = startingTrack;
+        audioSource[currentTrack].clip = GetTrack(GameManager.trackKeeper.nextTrack);
         audioSource[currentTrack].Play();
     }
 
-    public void SetNextTrack(Track trackToSet)
+    public void SetNextTrack(Track trackToSet, bool waitForCurrentToEnd)
     {
         AudioClip nextTrack;
 
@@ -57,11 +56,20 @@ public class AudioManager : MonoBehaviour
 
         audioSource[1 - currentTrack].clip = nextTrack;
 
-        double duration = (double)audioSource[currentTrack].clip.samples / audioSource[currentTrack].clip.frequency;
+        if(waitForCurrentToEnd)
+        {
+            
+            double duration = (double)audioSource[currentTrack].clip.samples / audioSource[currentTrack].clip.frequency;
 
-        double remaining = duration - audioSource[currentTrack].time;
+            double remaining = duration - audioSource[currentTrack].time;
 
-        audioSource[1 - currentTrack].PlayScheduled(AudioSettings.dspTime + remaining);
+            audioSource[1 - currentTrack].PlayScheduled(AudioSettings.dspTime + remaining);
+
+        }
+        else
+        {
+            audioSource[1 - currentTrack].Play();
+        }
 
         currentTrack = 1 - currentTrack;
     }
@@ -109,5 +117,35 @@ public class AudioManager : MonoBehaviour
         canPlay = false;
         yield return new WaitForSeconds(1f);
         canPlay = true;
+    }
+
+    public void StopPlaying()
+    {
+        audioSource[currentTrack].Stop();
+    }
+
+    private AudioClip GetTrack(Track trackToSet)
+    {
+        AudioClip nextTrack;
+        switch(trackToSet)
+        {
+            case Track.one:
+                nextTrack = audioClips[0];
+                break;
+            case Track.two:
+                nextTrack = audioClips[1];
+                break;
+            case Track.three:
+                nextTrack = audioClips[2];
+                break;
+            case Track.four:
+                nextTrack = audioClips[3];
+                break;
+            default:
+                nextTrack = audioClips[0];
+                break;
+        }
+
+        return nextTrack;
     }
 }

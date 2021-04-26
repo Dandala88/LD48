@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static ScoreManager scoreManager;
     public static CameraManager cameraManager;
     public static InputManager inputManager;
+    public static TrackKeeper trackKeeper;
 
     
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         endingScreen = FindObjectOfType<EndingScreen>();
         cameraManager = FindObjectOfType<CameraManager>();
         inputManager = FindObjectOfType<InputManager>();
+        trackKeeper = FindObjectOfType<TrackKeeper>();
         //Cursor.visible = false;
         //Cursor.lockState = CursorLockMode.Confined;
     }

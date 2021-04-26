@@ -35,6 +35,8 @@ public class EndingScreen : MonoBehaviour
         GameManager.endingScreen.gameObject.SetActive(true);
         GameManager.overlay.gameObject.SetActive(false);
         GameManager.inputManager.SwitchMap("Menu");
+        GameManager.audioManager.StopPlaying();
+        GameManager.trackKeeper.QueueNextTrack();
         if(success)
         {
             GameManager.endingScreen.Success();
