@@ -68,6 +68,7 @@ public class Enemy : MonoBehaviour
         {
             Damage(health);
             GameManager.player.Damage(1);
+            GameManager.scoreManager.resetCombo();
         }
     }
 
