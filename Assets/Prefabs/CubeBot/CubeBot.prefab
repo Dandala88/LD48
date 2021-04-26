@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  secondsPerRound: 2
-  activeRadius: 50
+  secondsPerRound: 0.5
+  activeRadius: 100
   prefab: {fileID: 784780304143605986, guid: ec6e47d2b879b3748bca4eccb8bc7bc7, type: 3}
   laserCannon: {fileID: 17635722438658033}
   pivotPoint: {fileID: 16172838635626907}
@@ -120,7 +120,8 @@ MonoBehaviour:
   explosionPrefab: {fileID: 6725403346551351656, guid: 132f072205c31d642aec69c099843828,
     type: 3}
   explosionSfx: {fileID: 8300000, guid: 75b79f0e081bc18459817eb1c2fbd41b, type: 3}
-  randomFireStagger: 1
+  enemyLeadTarget: 10
+  randomFireStagger: 0.4
   isFiring: 0
 --- !u!54 &3512287705481172860
 Rigidbody:

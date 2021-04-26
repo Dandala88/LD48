@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  ProjectileSpeed: 50
-  lifeSpan: 1
+  ProjectileSpeed: 100
+  lifeSpan: 5
   destination: {x: 0, y: 0, z: 0}
   fireSound: {fileID: 0}
 --- !u!135 &7614480168521471179

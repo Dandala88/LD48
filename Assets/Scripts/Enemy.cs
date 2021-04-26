@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Vector3 projectileOffset;
     public GameObject explosionPrefab;
     public AudioClip explosionSfx;
+    public float enemyLeadTarget;
 
     public float randomFireStagger;
     private float playerDistance;
@@ -25,7 +26,8 @@ public class Enemy : MonoBehaviour
     private IEnumerator Fire(float seconds)
     {
         LaserProjectile clone = Instantiate(prefab, laserCannon.transform.position, laserCannon.transform.rotation);
-        clone.setDestination(GameManager.player.transform.position);
+        Vector3 leadTarget = new Vector3(GameManager.player.transform.position.x, GameManager.player.transform.position.y - enemyLeadTarget, GameManager.player.transform.position.z);
+        clone.setDestination(leadTarget);
         yield return new WaitForSeconds(seconds);
 
         if (isFiring) {
