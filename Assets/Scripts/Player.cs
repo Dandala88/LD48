@@ -58,10 +58,7 @@ public class Player : MonoBehaviour
             health -= damage;
             if(health <= 0)
             {
-                GameManager.cameraManager.SwapCamera();
-                GameManager.endingScreen.gameObject.SetActive(true);
-                GameManager.overlay.gameObject.SetActive(false);
-                Time.timeScale = 0;
+                GameManager.endingScreen.EndGame(false);
             }
             else
             {

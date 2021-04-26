@@ -203,17 +203,17 @@
             "id": "8fccd68b-371b-4943-bd3e-4b935c390f0e",
             "actions": [
                 {
-                    "name": "Movement",
-                    "type": "PassThrough",
-                    "id": "2b5e5e65-df56-4a26-bd51-81f0630044ec",
-                    "expectedControlType": "Vector2",
+                    "name": "Start/Eenter",
+                    "type": "Button",
+                    "id": "68cb308a-ab99-40e3-9046-b095c6b690f4",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
-                    "name": "Confirm",
+                    "name": "Select/Escape",
                     "type": "Button",
-                    "id": "a33fb413-cc0d-4780-92fd-aa433927419a",
+                    "id": "8a3cf636-2382-4152-b0a3-d74971b2ae01",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -221,68 +221,46 @@
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "6aa89176-b02e-45c1-a883-574e60931bbb",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "8b55a240-33ba-46c2-892d-c4a3badddbd7",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
+                    "groups": "Keyboard + Mouse",
+                    "action": "Start/Eenter",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "47418dc4-d1ad-47d5-80a6-6ac15907e768",
-                    "path": "<XInputController>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "b1de0a3f-8023-4825-92e9-a67dcc191920",
-                    "path": "<XInputController>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "96557d04-a33f-4a02-bd0d-8e8d6cb5aef1",
-                    "path": "<XInputController>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "b994e9ec-b372-4ce9-b685-212e8c42a205",
-                    "path": "<XInputController>/leftStick/right",
+                    "name": "",
+                    "id": "378b6a19-b0d2-479b-9533-70b973e5aa20",
+                    "path": "<XInputController>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox Controller",
-                    "action": "Movement",
+                    "action": "Start/Eenter",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "7c9886bc-8538-4dbb-b40e-0033a055608a",
-                    "path": "<XInputController>/buttonSouth",
+                    "id": "0857ab4a-d1bb-41b4-97c1-18aa2e4f73ac",
+                    "path": "<XInputController>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox Controller",
-                    "action": "Confirm",
+                    "action": "Select/Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1c7c527-4629-4a7d-a3e2-cad25aa242eb",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard + Mouse",
+                    "action": "Select/Escape",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Dandalaland.unity
+    guid: dd6c201cb51017c42954d9a7553874ca
   m_configObjects: {}

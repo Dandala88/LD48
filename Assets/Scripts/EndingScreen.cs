@@ -7,22 +7,44 @@ using UnityEngine.InputSystem;
 
 public class EndingScreen : MonoBehaviour
 {
-    public Button restartButton;
-    public Button quitButton;
-
-    public void OnRestartClick()
+    public Text successOrFailure;
+    public Text finalScore;
+    
+    private void Success()
     {
-        Debug.Log("Clicked restart");
+        successOrFailure.color = Color.green;
+        successOrFailure.text = "Success";
+        SetFinalScore();
     }
 
-    public void OnEnable()
+    private void Failure()
     {
-        EventSystem.current.SetSelectedGameObject(restartButton.gameObject);
+        successOrFailure.color = Color.red;
+        successOrFailure.text = "Failure";
+        SetFinalScore();
     }
 
-    public void Start()
+    private void SetFinalScore()
     {
-        GameManager.inputManager.input.SwitchCurrentActionMap("Menu");
+        finalScore.text = "Final Score: " + GameManager.scoreManager.getScore();
+    }
+
+    public void EndGame(bool success)
+    {
+        GameManager.cameraManager.SwapCamera();
+        GameManager.endingScreen.gameObject.SetActive(true);
+        GameManager.overlay.gameObject.SetActive(false);
+        GameManager.inputManager.SwitchMap("Menu");
+        if(success)
+        {
+            GameManager.endingScreen.Success();
+        }
+        else
+        {
+            GameManager.endingScreen.Failure();
+        }
+        
+        Time.timeScale = 0;
     }
 
 }

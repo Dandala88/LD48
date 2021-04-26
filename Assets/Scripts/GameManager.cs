@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         endingScreen.gameObject.SetActive(false);
-        inputManager.input.SwitchCurrentActionMap("Player");
     }
 
     

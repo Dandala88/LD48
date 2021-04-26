@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InputManager : MonoBehaviour
 {
-    public PlayerInput input;
-
-    private void Awake()
-    {
-        input = GetComponent<PlayerInput>();
-    }
 
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -37,6 +32,29 @@ public class InputManager : MonoBehaviour
             //inputToSend = new Vector2(Mathf.Clamp(inputToSend.x, -1.0f, 1.0f), Mathf.Clamp(inputToSend.y, -1.0f, 1.0f));
             GameManager.fireCursor.Move(inputToSend);
         }
+    }
+
+    public void OnRestart(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            GameManager.cameraManager.SwapCamera();
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        }
+    }
+
+    public void OnQuit(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            Application.Quit();
+        }
+    }
+
+    public void SwitchMap(string actionMap)
+    {
+        GetComponent<PlayerInput>().SwitchCurrentActionMap(actionMap);
     }
 
 }
