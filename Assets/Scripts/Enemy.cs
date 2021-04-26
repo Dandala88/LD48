@@ -17,8 +17,13 @@ public class Enemy : MonoBehaviour
     private float playerDistance;
     public bool isFiring = false;
 
+    private Light agroLight;
+
     private void Start()
     {
+        agroLight = GetComponentInChildren<Light>();
+        agroLight.enabled = false;
+        Debug.Log(agroLight);
         float rando = Random.Range(-randomFireStagger, randomFireStagger);
         secondsPerRound += rando;
     }
@@ -38,14 +43,16 @@ public class Enemy : MonoBehaviour
     void Update() {
         playerDistance = Vector3.Distance(transform.position, GameManager.player.transform.position);
 
-        if (playerDistance <= activeRadius) {
+        if (playerDistance <= activeRadius && transform.position.y-1 <= GameManager.player.transform.position.y) {
             if (!isFiring) {
                 isFiring = true;
                 StartCoroutine(Fire(secondsPerRound));
             }
-            pivotPoint.transform.LookAt(GameManager.player.transform);     
+            pivotPoint.transform.LookAt(GameManager.player.transform);    
+            agroLight.enabled = true; 
         } else {
             isFiring = false;
+            agroLight.enabled = false; 
         }
     }
 
