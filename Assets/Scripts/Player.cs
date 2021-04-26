@@ -54,18 +54,20 @@ public class Player : MonoBehaviour
     {
         if(!invincible)
         {
-            if(health - damage > 0)
+            
+            health -= damage;
+            if(health <= 0)
             {
-                health -= damage;
+                GameManager.endingScreen.EndGame(false);
+            }
+            else
+            {
                 GameManager.scoreManager.resetCombo();
                 GameManager.overlay.UpdatePlayerHealth(health);
                 StartCoroutine(Invincibility(GetComponentsInChildren<SkinnedMeshRenderer>(), iframeSeconds, 0.05f));
             }
 
-            if(health <= 0)
-            {
-                Destroy(gameObject);
-            }
+            
         }
          
     }
