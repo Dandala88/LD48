@@ -102,11 +102,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundEffect(AudioClip clip)
     {
-        if(canPlay)
-        {
-            sfx.PlayOneShot(clip, 0.7f);
-            StartCoroutine(SoundEffectReset());
-        }
+            sfx.PlayOneShot(clip);
 
     }
 

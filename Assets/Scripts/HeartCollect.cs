@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeartCollect : MonoBehaviour
 {
-    public float rotationSpeed = 1f;
+    public AudioClip collectSound; 
 
     private void Update()
     {
@@ -17,6 +17,7 @@ public class HeartCollect : MonoBehaviour
         {
             GameManager.player.health = GameManager.player.maxHealth;
             GameManager.overlay.UpdatePlayerHealth(GameManager.player.health);
+            GameManager.audioManager.PlaySoundEffect(collectSound);
             Destroy(gameObject);
         }
     }
