@@ -7,6 +7,7 @@ public class TrackKeeper : MonoBehaviour
 {
     
     public AudioManager.Track nextTrack;
+    public bool startingscreen = true;
 
     public int current = 1;
 

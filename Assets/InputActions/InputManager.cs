@@ -38,6 +38,16 @@ public class InputManager : MonoBehaviour
     {
         if(context.started)
         {
+            Debug.Log(GameManager.trackKeeper.startingscreen);
+            if(GameManager.trackKeeper.startingscreen)
+            {
+                
+                GameManager.trackKeeper.startingscreen = false;
+                GameManager.overlay.gameObject.SetActive(true);
+                GameManager.endingScreen.gameObject.SetActive(false);
+                GameManager.startingScreen.gameObject.SetActive(false);
+                GameManager.inputManager.SwitchMap("Player");
+            }
             GameManager.cameraManager.SwapCamera();
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
