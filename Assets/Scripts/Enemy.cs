@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour
 
     private Light agroLight;
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, activeRadius);
+    }
+
     private void Start()
     {
         agroLight = GetComponentInChildren<Light>();
