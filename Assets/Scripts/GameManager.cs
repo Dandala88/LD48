@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
         cameraManager = FindObjectOfType<CameraManager>();
         inputManager = FindObjectOfType<InputManager>();
         trackKeeper = FindObjectOfType<TrackKeeper>();
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Start()

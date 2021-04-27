@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public float enemyLeadTarget;
 
     public float randomFireStagger;
-    private float playerDistance;
+    protected float playerDistance;
     public bool isFiring = false;
 
     private Light agroLight;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, activeRadius);
     }
 
-    private void Start()
+    protected void Start()
     {
         agroLight = GetComponentInChildren<Light>();
         agroLight.enabled = false;
@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
         secondsPerRound += rando;
     }
 
-    private IEnumerator Fire(float seconds)
+    protected IEnumerator Fire(float seconds)
     {
         LaserProjectile clone = Instantiate(prefab, laserCannon.transform.position, laserCannon.transform.rotation);
         Vector3 leadTarget = new Vector3(GameManager.player.transform.position.x, GameManager.player.transform.position.y - enemyLeadTarget, GameManager.player.transform.position.z);
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Update() {
+    protected void Update() {
         playerDistance = Vector3.Distance(transform.position, GameManager.player.transform.position);
 
         if (playerDistance <= activeRadius && transform.position.y-1 <= GameManager.player.transform.position.y) {
@@ -69,8 +69,7 @@ public class Enemy : MonoBehaviour
         {
             GameManager.scoreManager.updateCombo(1);
             GameObject clone = Instantiate(explosionPrefab);
-            clone.transform.position = transform.position;
-            //GameManager.audio.PlaySoundEffect(explosionSfx);
+            OnDeath();
             Destroy(gameObject);
         }
     }
@@ -83,6 +82,12 @@ public class Enemy : MonoBehaviour
             GameManager.player.Damage(1);
             GameManager.scoreManager.resetCombo();
         }
+    }
+
+    protected void OnDeath()
+    {
+        GameObject clone = Instantiate(explosionPrefab);
+        clone.transform.position = transform.position;
     }
 
     

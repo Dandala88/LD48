@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public int health;
     public int maxHealth;
     public float iframeSeconds;
+    [HideInInspector] public bool bossKilled;
 
     //public Transform lookAtPoint;
 

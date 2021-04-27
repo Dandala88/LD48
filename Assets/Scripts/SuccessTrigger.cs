@@ -8,7 +8,7 @@ public class SuccessTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            GameManager.endingScreen.EndGame(true);
+            GameManager.endingScreen.EndGame(GameManager.player.bossKilled);
         }
     }
 }
