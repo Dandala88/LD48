@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public GameObject explosionPrefab;
     public AudioClip explosionSfx;
     public float enemyLeadTarget;
+    public float offsetForFireStop;
 
     public float randomFireStagger;
     protected float playerDistance;
@@ -47,7 +48,7 @@ public class Enemy : MonoBehaviour
     protected void Update() {
         playerDistance = Vector3.Distance(transform.position, GameManager.player.transform.position);
 
-        if (playerDistance <= activeRadius && transform.position.y-1 <= GameManager.player.transform.position.y) {
+        if (playerDistance <= activeRadius && transform.position.y + offsetForFireStop <= GameManager.player.transform.position.y) {
             if (!isFiring) {
                 isFiring = true;
                 StartCoroutine(Fire(secondsPerRound));

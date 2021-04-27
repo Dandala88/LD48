@@ -312,10 +312,11 @@ MonoBehaviour:
   laserCannon: {fileID: 2487757301161458372}
   pivotPoint: {fileID: 2486436219327503534}
   projectileOffset: {x: 0, y: 0, z: 0}
-  explosionPrefab: {fileID: 6725403346551351656, guid: 132f072205c31d642aec69c099843828,
+  explosionPrefab: {fileID: 6725403346551351656, guid: ce16e7271b7b4cf4a85ff11918706ef1,
     type: 3}
   explosionSfx: {fileID: 8300000, guid: 75b79f0e081bc18459817eb1c2fbd41b, type: 3}
   enemyLeadTarget: 30
+  offsetForFireStop: 100
   randomFireStagger: 0.5
   isFiring: 0
 --- !u!54 &1298948202747259465

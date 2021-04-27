@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
-  ProjectileSpeed: 100
-  lifeSpan: 5
+  ProjectileSpeed: 500
+  lifeSpan: 1
   destination: {x: 0, y: 0, z: 0}
   fireSound: {fileID: 0}
 --- !u!135 &7614480168521471179
@@ -145,7 +145,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.125
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4019124238411919177
 Rigidbody:
@@ -366,16 +366,16 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.5204802
       - serializedVersion: 3
-        time: 0.11556715
-        value: 0.19718073
-        inSlope: -0.000016221062
-        outSlope: -0.000016221062
+        time: 0.14317793
+        value: 0.43493557
+        inSlope: -1.4182003
+        outSlope: -1.4182003
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.30676803
-        outWeight: 0
+        outWeight: 0.16226317
       - serializedVersion: 3
-        time: 0.39938653
+        time: 0.73620605
         value: 0
         inSlope: 0
         outSlope: 0
